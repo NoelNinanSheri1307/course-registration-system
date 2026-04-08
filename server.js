@@ -6,7 +6,7 @@ app.use(cors());
 
 let courses = [];
 
-// Add Course API (v1)
+// Add Course API
 app.get('/add-course', (req, res) => {
     const course = req.query.course;
 
@@ -17,6 +17,11 @@ app.get('/add-course', (req, res) => {
     courses.push(course);
 
     res.send(`Course "${course}" added successfully`);
+});
+
+// NEW: View Course List API
+app.get('/courses', (req, res) => {
+    res.json(courses);
 });
 
 app.listen(3000, () => {
