@@ -38,8 +38,12 @@ app.get('/register', (req, res) => {
     res.send(`Student "${student}" registered for course "${course}"`);
 });
 
-app.get('/registrations', (req, res) => {
-    res.json(registrations);
+app.get('/courses', (req, res) => {
+    res.json({
+        totalCourses: courses.length,
+        totalRegistrations: registrations.length,
+        registrations: registrations
+    });
 });
 
 app.listen(3000,'0.0.0.0',() => {
